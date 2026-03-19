@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atividade Pietro v2</title>
+<style>
+@page { size: A4; margin: 10mm; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: Arial, sans-serif; color:#000; }
+.page { border:2px solid #000; padding:10px; }
+.top { display:flex; justify-content:space-between; gap:10px; font-size:12px; margin-bottom:6px; }
+.title { text-align:center; font-size:22px; font-weight:700; letter-spacing:.5px; margin:4px 0 8px; text-transform:uppercase; }
+.subtitle { text-align:center; font-size:13px; margin-bottom:10px; }
+.block { border:1.5px solid #000; padding:8px; margin-bottom:8px; }
+.block h3 { margin:0 0 6px; font-size:13px; text-transform:uppercase; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.card { border:1.5px solid #000; min-height:82px; padding:6px; }
+.shape { width:28px; height:28px; border:2px solid #000; margin-bottom:6px; }
+.circle { border-radius:50%; }
+.tri { width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:24px solid #000;margin-bottom:8px; }
+.trace { height:34px; border:1px dashed #000; margin-top:6px; }
+.cutline { border-top:2px dashed #000; margin:10px 0; }
+.table { width:100%; border-collapse:collapse; font-size:12px; }
+.table th,.table td { border:1px solid #000; padding:5px; min-height:22px; }
+.small { font-size:12px; line-height:1.35; }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="top">
+    <div><strong>Aluno:</strong> Pietro</div>
+    <div><strong>Idade:</strong> 7</div>
+    <div><strong>Turma:</strong> 2o ano</div>
+    <div><strong>Perfil:</strong> TEA nivel 3</div>
+  </div>
+
+  <div class="title">Coordenacao Motora Fina</div>
+  <div class="subtitle">Atividade: Prende, Trace e Cole (15-20 min)</div>
+
+  <section class="block small">
+    <h3>1) Rotina visual</h3>
+    <div class="grid3">
+      <div class="card"><strong>INICIO</strong><br>Escolha 1 cartao.</div>
+      <div class="card"><strong>MEIO</strong><br>Prenda e trace.</div>
+      <div class="card"><strong>FIM</strong><br>Cole no quadro.</div>
+    </div>
+  </section>
+
+  <section class="block small">
+    <h3>2) Prender no cartao (use pregador grande)</h3>
+    <div class="grid4">
+      <div class="card"><div class="shape circle"></div><strong>CIRCULO</strong></div>
+      <div class="card"><div class="shape"></div><strong>QUADRADO</strong></div>
+      <div class="card"><div class="tri"></div><strong>TRIANGULO</strong></div>
+      <div class="card"><div class="shape circle"></div><strong>BOLA</strong></div>
+    </div>
+  </section>
+
+  <section class="block small">
+    <h3>3) Tracar linhas (lento e com calma)</h3>
+    <div>linha 1<div class="trace"></div></div>
+    <div>linha 2<div class="trace"></div></div>
+    <div>linha 3<div class="trace"></div></div>
+  </section>
+
+  <section class="block small">
+    <h3>4) Colar concluido (quadro final)</h3>
+    <div class="card" style="min-height:90px;"><strong>CONSEGUI HOJE</strong><br><br></div>
+  </section>
+
+  <div class="cutline"></div>
+
+  <section class="block small">
+    <h3>Registro rapido do professor</h3>
+    <table class="table">
+      <thead>
+        <tr><th>Indicador</th><th>Sem ajuda</th><th>Ajuda parcial</th><th>Ajuda total</th><th>Obs.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Abre/fecha pregador</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Traca 3 linhas</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Mantem foco por bloco curto</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>
