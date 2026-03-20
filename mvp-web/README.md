@@ -7,6 +7,9 @@ Implementado:
 - Formulario de geracao
 - Preview A4 imprimivel
 - Botao `Imprimir / Baixar PDF`
+- Validacao local + validacao de API com detalhamento de erro
+- Historico local (ultimas 10 geracoes) com reuso de item
+- Melhorias de acessibilidade (labels, foco visivel, aria-invalid, live region)
 
 ## Rodar local
 ```bash
@@ -22,4 +25,4 @@ npm run dev
 
 ## Proximo passo
 - Integrar OpenAI para geracao por componente BNCC
-- Persistir historico por aluno
+- Persistir historico por aluno em banco

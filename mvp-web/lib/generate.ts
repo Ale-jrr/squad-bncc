@@ -1,13 +1,19 @@
 ﻿import type { ActivityRequest, GeneratedActivity } from "@/types/activity";
 
-const supportGuidance: Record<ActivityRequest["supportLevel"], string> = {
+const supportGuidance: Record<string, string> = {
   leve: "Aumentar autonomia com desafios curtos.",
   moderado: "Roteiro guiado com checkpoints e pausa programada.",
   alto: "Microetapas com mediacao proxima e reducao de carga.",
   muito_alto: "Uma acao por bloco, mediacao constante e previsibilidade maxima."
 };
 
+function normalizeLevel(level: string): string {
+  return level.trim().toLowerCase().replaceAll(" ", "_");
+}
+
 export function generateActivity(input: ActivityRequest): GeneratedActivity {
+  const levelKey = normalizeLevel(input.supportLevel);
+  const levelAdvice = supportGuidance[levelKey] ?? "Aplicar progressao gradual de apoio conforme resposta do aluno.";
   const profileLabel = input.profiles.join(", ");
 
   return {
@@ -21,7 +27,7 @@ export function generateActivity(input: ActivityRequest): GeneratedActivity {
     ],
     adaptations: [
       `Perfis considerados: ${profileLabel}.`,
-      `Nivel de suporte: ${input.supportLevel}. ${supportGuidance[input.supportLevel]}`,
+      `Nivel de suporte: ${input.supportLevel}. ${levelAdvice}`,
       "Hierarquia de prompts: verbal, gestual, modelagem, fisico parcial.",
       "Pausa de regulacao de 1 minuto entre blocos."
     ],

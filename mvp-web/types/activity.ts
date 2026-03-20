@@ -1,26 +1,16 @@
 ﻿import { z } from "zod";
 
-export const profilesEnum = z.enum([
-  "tea",
-  "tdah",
-  "dislexia",
-  "deficiencia_intelectual",
-  "tod",
-  "deficiencia_auditiva",
-  "deficiencia_visual",
-  "tdc",
-  "altas_habilidades"
-]);
+const bnccCodeRegex = /^[A-Z]{2}\d{2}[A-Z]{2,4}\d{2,3}$/;
 
 export const activityRequestSchema = z.object({
-  studentName: z.string().min(1),
+  studentName: z.string().trim().min(1),
   age: z.number().int().min(4).max(18),
-  grade: z.string().min(1),
-  supportLevel: z.enum(["leve", "moderado", "alto", "muito_alto"]),
-  profiles: z.array(profilesEnum).min(1),
-  subject: z.string().min(1),
-  bnccCode: z.string().min(4),
-  objective: z.string().min(5),
+  grade: z.string().trim().min(1),
+  supportLevel: z.string().trim().min(1).max(40),
+  profiles: z.array(z.string().trim().min(2).max(60)).min(1).max(8),
+  subject: z.string().trim().min(1),
+  bnccCode: z.string().trim().toUpperCase().regex(bnccCodeRegex, "Codigo BNCC invalido"),
+  objective: z.string().trim().min(5),
   context: z.enum(["sala_regular", "aee", "casa"]),
   durationMin: z.number().int().min(5).max(90)
 });
