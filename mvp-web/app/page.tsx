@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { suggestBnccCode } from "@/lib/bncc-matrix";
 
 type ApiResponse = {
   objective: string;
@@ -44,7 +45,7 @@ const initialForm: FormState = {
   profiles: "tea",
   supportLevel: "moderado",
   subject: "Matematica",
-  bnccCode: "EF02MA00",
+  bnccCode: "EF02MA06",
   objective: "Desenvolver coordenacao motora fina com atividade estruturada.",
   context: "sala_regular",
   durationMin: 20
@@ -106,6 +107,7 @@ export default function HomePage() {
   }
 
   const validationErrors = useMemo(() => localValidation(form), [form]);
+  const bnccSuggestion = useMemo(() => suggestBnccCode(form.grade, form.subject), [form.grade, form.subject]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -180,6 +182,11 @@ export default function HomePage() {
     persistHistory([]);
   }
 
+  function applySuggestion() {
+    if (!bnccSuggestion) return;
+    update("bnccCode", bnccSuggestion.code);
+  }
+
   return (
     <main className="container">
       <section className="card no-print" aria-labelledby="form-title">
@@ -213,6 +220,12 @@ export default function HomePage() {
           <label htmlFor="durationMin" className="label">Duracao (min)</label>
           <input id="bnccCode" aria-invalid={!/^[A-Z]{2}\d{2}[A-Z]{2,4}\d{2,3}$/.test(normalizeBncc(form.bnccCode))} value={form.bnccCode} onChange={(e) => update("bnccCode", normalizeBncc(e.target.value))} placeholder="EF02MA06" required />
           <input id="durationMin" aria-invalid={form.durationMin < 5 || form.durationMin > 90} value={form.durationMin} onChange={(e) => update("durationMin", Number(e.target.value))} type="number" min={5} max={90} required />
+
+          <div className="full suggest-box">
+            <strong>Sugestao BNCC automatica:</strong>{" "}
+            {bnccSuggestion ? `${bnccSuggestion.code} - ${bnccSuggestion.skill}` : "sem sugestao para esta combinacao"}
+            {bnccSuggestion ? <button type="button" className="secondary" onClick={applySuggestion}>Usar sugestao</button> : null}
+          </div>
 
           <label htmlFor="objective" className="label full">Objetivo pedagogico</label>
           <textarea id="objective" className="full" aria-invalid={!form.objective.trim() || form.objective.trim().length < 5} value={form.objective} onChange={(e) => update("objective", e.target.value)} rows={3} required />

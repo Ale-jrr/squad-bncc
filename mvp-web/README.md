@@ -10,6 +10,8 @@ Implementado:
 - Validacao local + validacao de API com detalhamento de erro
 - Historico local (ultimas 10 geracoes) com reuso de item
 - Melhorias de acessibilidade (labels, foco visivel, aria-invalid, live region)
+- Matriz BNCC base (1o ao 5o ano, componentes principais) com sugestao automatica
+- Motor de adaptacao por perfil atipico e escalonamento por nivel de suporte
 
 ## Rodar local
 ```bash
@@ -26,3 +28,4 @@ npm run dev
 ## Proximo passo
 - Integrar OpenAI para geracao por componente BNCC
 - Persistir historico por aluno em banco
+- Expandir matriz BNCC para todos os anos/componentes
