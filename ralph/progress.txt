@@ -1,0 +1,4 @@
+﻿# Ralph Progress
+
+- Branch: ralph/mvp-bncc-inclusive-generator
+- Status: Initialized

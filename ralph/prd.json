@@ -1,0 +1,136 @@
+﻿{
+  "project": "BNCC Inclusive Activity Generator",
+  "branchName": "ralph/mvp-bncc-inclusive-generator",
+  "description": "MVP web para gerar atividades inclusivas alinhadas a BNCC, com preview e exportacao PDF.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Definir catalogo minimo de tipos de atividade",
+      "description": "As a product owner, I want a fixed MVP activity catalog so that scope and quality remain controlled.",
+      "acceptanceCriteria": [
+        "Documentar 5 tipos de atividade no projeto",
+        "Para cada tipo, incluir objetivo e faixa etaria",
+        "Listar explicitamente o que esta fora do MVP",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Criar schema universal de entrada de atividade",
+      "description": "As a developer, I want a strict request schema so that generation input is validated consistently.",
+      "acceptanceCriteria": [
+        "Schema inclui etapa/ano, perfil, nivel de suporte, componente e codigo BNCC",
+        "Schema aceita multiplos perfis atipicos simultaneos",
+        "Validacao rejeita payload invalido com mensagens de erro",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Implementar endpoint POST /api/generate",
+      "description": "As a frontend app, I want a generation endpoint so that the form can request a full activity output.",
+      "acceptanceCriteria": [
+        "Endpoint valida payload com schema",
+        "Endpoint retorna estrutura completa de atividade gerada",
+        "Endpoint retorna 400 para payload invalido e 500 para erro interno",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Criar formulario inicial de geracao",
+      "description": "As a teacher, I want to fill student and BNCC fields so that I can request a personalized activity.",
+      "acceptanceCriteria": [
+        "Formulario contem campos essenciais de aluno, BNCC, perfil e contexto",
+        "Submit envia payload para /api/generate",
+        "Exibir estado de loading e mensagens de erro",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Exibir preview imprimivel A4",
+      "description": "As a teacher, I want a print-friendly preview so that I can check the worksheet before exporting.",
+      "acceptanceCriteria": [
+        "Preview mostra objetivo, BNCC, passos, adaptacoes, plano B e criterio de sucesso",
+        "Layout em CSS respeita formato A4 para impressao",
+        "Elementos de edicao nao aparecem no modo print",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Adicionar exportacao por impressao para PDF",
+      "description": "As a teacher, I want to export generated activities as PDF so that I can share and print later.",
+      "acceptanceCriteria": [
+        "Botao de acao abre fluxo de impressao do navegador",
+        "Instrucoes de uso para salvar como PDF estao documentadas",
+        "Saida impressa preserva o layout do preview",
+        "Typecheck passes",
+        "Verify in browser using dev-browser skill"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Adicionar regras base de adaptacao por nivel de suporte",
+      "description": "As a specialist, I want output to vary by support level so that inclusion is practical and not generic.",
+      "acceptanceCriteria": [
+        "Gerador aplica orientacoes distintas para leve/moderado/alto/muito_alto",
+        "Saida inclui hierarquia de prompts e pausa programada",
+        "Saida inclui plano B para recusa/sobrecarga",
+        "Typecheck passes"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Criar checklist de QA funcional e de regressao",
+      "description": "As a QA lead, I want a repeatable checklist so that each story has a clear quality gate.",
+      "acceptanceCriteria": [
+        "Checklist cobre fluxo gerar -> preview -> imprimir",
+        "Checklist cobre validacao de dados e erros",
+        "Checklist registra criterio PASS/FAIL por story",
+        "Typecheck passes"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Criar plano de expansao BNCC completo",
+      "description": "As a product owner, I want a structured expansion plan so that the MVP can evolve to all BNCC components.",
+      "acceptanceCriteria": [
+        "Documentar matriz BNCC x perfil atipico x nivel de suporte",
+        "Definir prioridades de cobertura por etapa escolar",
+        "Relacionar dependencias tecnicas para cada bloco de expansao",
+        "Typecheck passes"
+      ],
+      "priority": 9,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
