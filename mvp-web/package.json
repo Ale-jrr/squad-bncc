@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "bncc:extract": "node scripts/extract-bncc-index.js"
   },
   "dependencies": {
     "next": "14.2.5",
+    "openai": "^4.104.0",
+    "pdf-parse": "^2.4.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "zod": "3.23.8"
@@ -21,4 +24,3 @@
     "typescript": "5.5.4"
   }
 }
-

@@ -2,8 +2,13 @@
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MVP BNCC Inclusivo",
-  description: "Gerador de atividades inclusivas alinhadas a BNCC"
+  title: "Plano Vivo BNCC Inclusiva",
+  description: "Landing e gerador de atividades inclusivas para escolas alinhadas a BNCC",
+  icons: {
+    icon: "/favicon-inclusive.svg",
+    shortcut: "/favicon-inclusive.svg",
+    apple: "/favicon-inclusive.svg"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
